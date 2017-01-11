@@ -103,15 +103,16 @@
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
-        //$.validator.setDefaults({
-        //    ignore: []
-        //});
+        $.validator.setDefaults({
+            ignore: []
+        });
 
         $(function () {
             $(document).ready(function () {
-                $("#add-new-cat").data("validator").settings.ignore = "";
+                
                 // code here this
                 $('#cat_parent').on('change', function () {
+                    console.log($(this).val());
                     if ($(this).val() !== "") {
                         $('#cat_parent_id').val($(this).val());
                     } else {

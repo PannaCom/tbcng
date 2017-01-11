@@ -176,7 +176,7 @@ namespace tbcng.Controllers
                 configs.SaveTolog(ex.ToString());
             }
 
-            return RedirectToRoute("AdminListCats");
+            return RedirectToRoute("AdminListCat");
         }
 
         public PartialViewResult lstCatPartial()
