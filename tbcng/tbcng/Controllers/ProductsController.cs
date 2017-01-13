@@ -91,6 +91,37 @@ namespace tbcng.Controllers
 
         }
 
+        //updateanh1
+        [HttpPost]
+        public ActionResult updateanh1(long? id, string anh_url)
+        {
+            try
+            {
+                var sql = "update products set product_photo = '" + anh_url + "' where product_id = " + id;
+                var update = db.Database.ExecuteSqlCommand(sql);
+            }
+            catch
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
+            return Json("1", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult updateanh2(long? id, string anh_url)
+        {
+            try
+            {
+                var sql = "update products set product_photo2 = '" + anh_url + "' where product_id = " + id;
+                var update = db.Database.ExecuteSqlCommand(sql);
+            }
+            catch
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
+            return Json("1", JsonRequestBehavior.AllowGet);
+        }
+
         public async Task<ActionResult> Edit(int? id)
         {
 
@@ -140,8 +171,8 @@ namespace tbcng.Controllers
                     _model.cat_id = model.cat_id ?? null;
                     _model.product_name = model.product_name ?? null;
                     _model.product_content = model.product_content ?? null;
-                    _model.product_photo = model.product_photo ?? null;
-                    _model.product_photo2 = model.product_photo2 ?? null;
+                    //_model.product_photo = model.product_photo ?? null;
+                    //_model.product_photo2 = model.product_photo2 ?? null;
                     _model.product_price_public = model.product_price_public ?? null;
                     //_model.product_type = model.product_type ?? null;
                     _model.product_new_type = model.product_new_type ?? null;
@@ -156,9 +187,10 @@ namespace tbcng.Controllers
             catch (Exception ex)
             {
                 TempData["Errored"] = "Có lỗi xảy ra khi cập nhật danh mục.";
-                configs.SaveTolog(ex.ToString());                
+                configs.SaveTolog(ex.ToString());
+                return RedirectToRoute("AdminEditProduct", new { id = model.product_id });
             }
-            return RedirectToRoute("AdminEditProduct", new { id = model.product_id });
+            return RedirectToRoute("AdminListProduct");
 
         }
 
@@ -176,6 +208,67 @@ namespace tbcng.Controllers
             return View(_model);
         }
 
+        //tailennhieuanh
+        public ActionResult tailennhieuanh(long? product_id)
+        {
+            bool isSaved = true;
+            int fName = 0;
+            try
+            {
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase file = Request.Files[fileName];
+                    //Save file content goes here
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var originalDirectory = new DirectoryInfo(string.Format("{0}images\\photos", Server.MapPath(@"\")));
+                        string pathString = System.IO.Path.Combine(originalDirectory.ToString());
+
+                        var _fileName = Guid.NewGuid().ToString("N") + ".jpg";
+
+                        bool isExists = System.IO.Directory.Exists(pathString);
+
+                        if (!isExists)
+                            System.IO.Directory.CreateDirectory(pathString);
+
+                        var path = string.Format("{0}\\{1}", pathString, _fileName);
+                        //System.Drawing.Image bm = System.Drawing.Image.FromStream(file.InputStream);
+                        // Thay đổi kích thước ảnh
+                        //bm = ResizeBitmap((Bitmap)bm, 400, 310); /// new width, height
+                        // Giảm dung lượng ảnh trước khi lưu
+                        //ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+                        //ImageCodecInfo ici = null;
+                        //foreach (ImageCodecInfo codec in codecs)
+                        //{
+                        //    if (codec.MimeType == "image/jpeg")
+                        //        ici = codec;
+                        //}
+                        //EncoderParameters ep = new EncoderParameters();
+                        //ep.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)80);
+                        //bm.Save(path, ici, ep);
+                        //bm.Save(path);
+                        file.SaveAs(path);
+                        string file_url = "/images/photos/" + _fileName;
+                        var update_img_product = db.Database.ExecuteSqlCommand("INSERT INTO product_img(img_url,product_id) VALUES('" + file_url + "'," + product_id + ")");
+                        
+                        fName = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                isSaved = false;
+                Helpers.configs.SaveTolog(ex.ToString());
+            }
+            if (isSaved)
+            {
+                return Json(new { Message = fName }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { Message = "Có lỗi khi lưu tệp tin" }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -376,24 +469,26 @@ namespace tbcng.Controllers
             return PartialView("_LoadPhotoProduct", model);
         }
 
-        public ActionResult upanhsanpham(long? product_id, string img_url, string img_title, string img_alt)
-        {
-            try
-            {
-                product_img _anhmoi = new product_img();
-                _anhmoi.product_id = product_id ?? null;
-                _anhmoi.img_url = img_url ?? null;
-                _anhmoi.img_title = img_title ?? null;
-                _anhmoi.img_alt = img_alt ?? null;
-                db.product_img.Add(_anhmoi);
-                db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                configs.SaveTolog(ex.ToString());
-            }
-            return RedirectToRoute("AdminEditProduct", new { id = product_id });
-        }
+        //public ActionResult upanhsanpham(long? product_id, string img_url, string img_title, string img_alt)
+        //{
+        //    try
+        //    {
+        //        product_img _anhmoi = new product_img();
+        //        _anhmoi.product_id = product_id ?? null;
+        //        _anhmoi.img_url = img_url ?? null;
+        //        _anhmoi.img_title = img_title ?? null;
+        //        _anhmoi.img_alt = img_alt ?? null;
+        //        db.product_img.Add(_anhmoi);
+        //        db.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        configs.SaveTolog(ex.ToString());
+        //    }
+        //    return RedirectToRoute("AdminEditProduct", new { id = product_id });
+        //}
+
+
 
         public ActionResult xoa_anh(long? id)
         {
