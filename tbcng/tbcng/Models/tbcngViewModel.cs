@@ -69,4 +69,19 @@ namespace tbcng.Models
         [Display(Name = "Mô tả sản phẩm")]
         public string product_des { get; set; }
     }
+
+    public class DanhMuc
+    {
+        public int CatId { get; set; }
+        public string CatName { get; set; }
+        public string CatUrl { get; set; }
+        public int? ParentId { get; set; }
+        public int? PositionIndex { get; set; }
+        public IList<DanhMuc> DanhMucs { get; set; }
+        public DanhMuc()
+        {
+            DanhMucs = new List<DanhMuc>();
+        }
+    }
+
 }
