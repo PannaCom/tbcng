@@ -1,11 +1,11 @@
 ﻿@model tbcng.Models.DanhMuc
-<ul class="menu1">
-   
+<ul class="dl-submenu">
+
     @foreach (var item in Model.DanhMucs)
     {
         if (item != null)
         {
-            <li>
+            <li class="menu-item kode-parent-menu">
                 <a href="/danh-muc/@item.CatUrl-@item.CatId">
                     @item.CatName @if (item.DanhMucs.Count > 0)
                     {<i class='fa fa-angle-down'></i>}
