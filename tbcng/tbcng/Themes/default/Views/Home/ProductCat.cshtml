@@ -83,7 +83,7 @@
                     {
 
                         var link_url = string.Format("/san-pham/{0}/{1}-{2}", item.cat.cat_url, configs.unicodeToNoMark(@item.product_name), @item.product_id);
-                        <div class="col-md-4 col-md-6">
+                        <div class="col-md-4 col-md-6 item_sp_height_fix">
                             <div class="kf_property_listing_wrap">
                                 <figure>
                                     <img src="@item.product_photo" alt="@item.product_name">
@@ -93,7 +93,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="kf_property_listing_des">
-                                    <h5><a href="@link_url">@item.product_name</a></h5>
+                                    <h5><a href="@link_url" class="item_sp_height_fix_2">@item.product_name</a></h5>
                                     <h5>
                                         Giá: 
                                         @*@string.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:#,###}", item.product_price_public) <b>đồng.</b>*@

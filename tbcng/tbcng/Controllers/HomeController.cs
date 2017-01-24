@@ -230,7 +230,7 @@ namespace tbcng.Controllers
 
         public ActionResult LoadProductInCat(int cat_id)
         {
-            var model = GetArticleOfCat(cat_id).Take(10).ToList();
+            var model = GetArticleOfCat(cat_id).OrderByDescending(x=>x.product_id).Take(10).ToList();
             return PartialView("_LoadProductInCat", model);
         }
         
