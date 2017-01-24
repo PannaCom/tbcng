@@ -193,7 +193,7 @@ namespace tbcng.Controllers
 
         public ActionResult LoadMultiProductCat()
         {
-            var model = from c in db.cats where c.cat_parent_id != null select c;
+            var model = from c in db.cats where c.cat_parent_id == 1 select c;
             return PartialView("_LoadProductMulCat", model.ToList());
         }
 
@@ -226,6 +226,12 @@ namespace tbcng.Controllers
                     model.DanhMucs.Add(child);
                 }
             }
+        }
+
+        public ActionResult LoadProductInCat(int cat_id)
+        {
+            var model = GetArticleOfCat(cat_id).Take(10).ToList();
+            return PartialView("_LoadProductInCat", model);
         }
         
 
