@@ -1816,6 +1816,7 @@ ul.kf_recent_rating {
     width: 100%;
     padding: 20px;
     position: relative;
+	height: 151px;
 }
 
     .kf_agent_des h6 > a {
