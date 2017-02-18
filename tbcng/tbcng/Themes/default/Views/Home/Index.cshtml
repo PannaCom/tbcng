@@ -27,12 +27,28 @@
     <meta property="og:image" itemprop="thumbnailUrl" content="">
 }
 
-
+<link href="~/Themes/default/Content/sld/flexslider.css" rel="stylesheet" />
+<link href="~/Themes/default/Content/StyleSheet1.css" rel="stylesheet" />
 
 @section MainBanner {
     @{Html.RenderAction("LoadProductNewHot");}
 }
 
-@{Html.RenderAction("LoadProductNew");}
+@*@{Html.RenderAction("LoadProductNew");}*@
 
 @{Html.RenderAction("LoadMultiProductCat");}
+
+
+@section scripts {
+        
+<script src="~/Themes/default/Content/sld/jquery.flexslider-min.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                directionNav: true
+            });
+        });
+    </script>
+}

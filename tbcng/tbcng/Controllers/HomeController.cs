@@ -43,7 +43,9 @@ namespace tbcng.Controllers
 
         public ActionResult LoadProductNewHot()
         {
-            var model = (from o in db.products where o.status == true && o.product_new_type == 2 && o.product_photo2 != null orderby o.updated_date descending select o).ToList().Take(10).ToList();
+            //var model = (from o in db.products where o.status == true && o.product_new_type == 2 && o.product_photo2 != null orderby o.updated_date descending select o).ToList().Take(10).ToList();
+            var model = (from s in db.products where s.status == true orderby s.updated_date descending select s).ToList().Take(10).ToList();
+            
             return PartialView("_SectionProductHot", model);
         }
 
