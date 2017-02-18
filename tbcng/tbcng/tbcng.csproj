@@ -905,10 +905,26 @@
     <Content Include="Themes\default\Content\js\owl.carousel.js" />
     <Content Include="Themes\default\Content\js\range-slider.js" />
     <Content Include="Themes\default\Content\js\waypoints-min.js" />
+    <Content Include="Themes\default\Content\sld\css\images\blank.gif" />
+    <Content Include="Themes\default\Content\sld\css\images\closedhand.cur" />
+    <Content Include="Themes\default\Content\sld\css\images\openhand.cur" />
+    <Content Include="Themes\default\Content\sld\css\slider-pro.css" />
+    <Content Include="Themes\default\Content\sld\css\slider-pro.min.css" />
+    <Content Include="Themes\default\Content\sld\flexslider.css" />
+    <Content Include="Themes\default\Content\sld\fonts\flexslider-icon.svg" />
+    <Content Include="Themes\default\Content\sld\images\bg_play_pause.png" />
+    <Content Include="Themes\default\Content\sld\images\xaytruong.png" />
+    <Content Include="Themes\default\Content\sld\jquery.flexslider-min.js" />
+    <Content Include="Themes\default\Content\sld\jquery.flexslider.js" />
+    <Content Include="Themes\default\Content\sld\js\jquery.sliderPro.js" />
+    <Content Include="Themes\default\Content\sld\js\jquery.sliderPro.min.js" />
     <Content Include="Themes\default\Content\style.css" />
+    <Content Include="Themes\default\Content\StyleSheet1.css" />
     <Content Include="Views\Admin\New Text Document.txt" />
     <Content Include="Views\Products\New Text Document.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -992,6 +1008,11 @@
     <Content Include="Views\Products\_childOptionCatPartial.cshtml" />
     <Content Include="Views\Products\_LoadPhotoProduct.cshtml" />
     <Content Include="Views\Products\_lstOptionCatPartial.cshtml" />
+    <Content Include="Themes\default\Views\Home\_MenuLeftPartial.cshtml" />
+    <Content Include="Themes\default\Views\Home\_PartialChildMenu.cshtml" />
+    <Content Include="Themes\default\Content\sld\fonts\flexslider-icon.eot" />
+    <Content Include="Themes\default\Content\sld\fonts\flexslider-icon.ttf" />
+    <Content Include="Themes\default\Content\sld\fonts\flexslider-icon.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
