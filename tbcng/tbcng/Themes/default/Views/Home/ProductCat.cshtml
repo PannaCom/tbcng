@@ -33,6 +33,9 @@
     }
 }
 
+<link href="~/Themes/default/Content/sld/flexslider.css" rel="stylesheet" />
+<link href="~/Themes/default/Content/StyleSheet1.css" rel="stylesheet" />
+
 
 @section metatags {
     <meta name="description" content="@Html.Raw(Danhmuc)">
@@ -48,22 +51,24 @@
 }
 
 @section MainBanner {
-    <!--Sub Banner Wrap Start-->
-    <div class="kf_property_sub_banner">
-        <div class="container">
-            <div class="kf_sub_banner_hdg">
-                <h3>@Html.Raw(ViewBag.Title)</h3>
-            </div>
-            <div class="kf_property_breadcrumb">
-                <ul>
-                    <li><a href="#">Danh mục</a></li>
-                    <li><a href="/danh-muc/@url_danhmuc-@id_danhmuc" class="bb1_p0_m010">@Danhmuc</a></li>
-                </ul>
-            </div>
+    @{Html.RenderAction("LoadProductNewHot");}
+}
+
+ <!--Sub Banner Wrap Start-->
+<div class="kf_property_sub_banner">
+    <div class="container">
+        <div class="kf_sub_banner_hdg">
+            <h3>@Html.Raw(ViewBag.Title)</h3>
+        </div>
+        <div class="kf_property_breadcrumb">
+            <ul>
+                <li><a href="#">Danh mục</a></li>
+                <li><a href="/danh-muc/@url_danhmuc-@id_danhmuc" class="bb1_p0_m010">@Danhmuc</a></li>
+            </ul>
         </div>
     </div>
-    <!--Sub Banner Wrap End-->
-}
+</div>
+<!--Sub Banner Wrap End-->
 
 @*@{Html.RenderAction("LoadInfoCat", "Home", new { id = id_danhmuc });}*@
 
@@ -137,7 +142,16 @@
     </div>
 </section>
 <!--Property Listing 01 Wrap End-->
-@section Scripts {
+@section scripts {
 
-
+    <script src="~/Themes/default/Content/sld/jquery.flexslider-min.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                directionNav: true
+            });
+        });
+    </script>
 }

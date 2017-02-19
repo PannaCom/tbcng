@@ -41,6 +41,8 @@
 
 @section Styles {
     <link href="~/Scripts/fcb/jquery.fancybox.css" rel="stylesheet" />
+<link href="~/Themes/default/Content/sld/flexslider.css" rel="stylesheet" />
+<link href="~/Themes/default/Content/StyleSheet1.css" rel="stylesheet" />
 }
 
 @section scripts2 {
@@ -71,9 +73,14 @@
     <meta property="og:description" content="@Html.Raw(product_des)">
     <meta property="og:image" itemprop="thumbnailUrl" content="@host@url_imgproduct">
 }
+
+@section MainBanner {
+    @{Html.RenderAction("LoadProductNewHot");}
+}
+
 @if (Model != null)
 {
-    @section MainBanner {
+   
     <!--Sub Banner Wrap Start-->
     <div class="kf_property_sub_banner">
         <div class="container">
@@ -105,7 +112,7 @@
         </div>
     </div>
     <!--Sub Banner Wrap End-->
-    }
+
 }
 
 
@@ -239,4 +246,18 @@
         })
 
     </script>
+
+<script src="~/Themes/default/Content/sld/jquery.flexslider-min.js"></script>
+<script>
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: false,
+            directionNav: true
+        });
+    });
+</script>
+
+
+
 }
