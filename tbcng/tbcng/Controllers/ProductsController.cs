@@ -38,7 +38,7 @@ namespace tbcng.Controllers
                 ViewBag.search = search;
             }
 
-            data = data.OrderBy(x => x.updated_date);
+            data = data.OrderByDescending(x => x.product_id);
             return View(data.ToList().ToPagedList(pageNumber, pageSize));
         }
 
@@ -177,7 +177,7 @@ namespace tbcng.Controllers
                     //_model.product_type = model.product_type ?? null;
                     _model.product_new_type = model.product_new_type ?? null;
                     _model.status = model.status;
-                    _model.updated_date = DateTime.Now;
+                    _model.edit_date = DateTime.Now;
                     _model.product_des = model.product_des;
                     db.Entry(_model).State = System.Data.Entity.EntityState.Modified;
                     await db.SaveChangesAsync();

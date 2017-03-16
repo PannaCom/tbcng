@@ -29,6 +29,7 @@ namespace tbcng.Models
         public string product_photo2 { get; set; }
         public string product_content { get; set; }
         public Nullable<System.DateTime> updated_date { get; set; }
+        public Nullable<System.DateTime> edit_date { get; set; }
         public Nullable<System.DateTime> deleted_date { get; set; }
         public Nullable<bool> status { get; set; }
         public Nullable<int> cat_id { get; set; }
