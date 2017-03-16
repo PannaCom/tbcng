@@ -67,13 +67,13 @@ namespace tbcng.Controllers
 
         public ActionResult LoadProductInvolve(long? id)
         {
-            var model = (from s in db.products where s.product_id != id && s.status == true orderby s.updated_date descending select s).ToList().Take(10).ToList();
+            var model = (from s in db.products where s.product_id != id && s.status == true orderby s.product_id descending select s).ToList().Take(10).ToList();
             return PartialView("_LoadProductInvolve", model);
         }
 
         public ActionResult LoadProductNew()
         {
-            var model = (from s in db.products where s.status == true orderby s.updated_date descending select s).ToList().Take(10).ToList();
+            var model = (from s in db.products where s.status == true orderby s.product_id descending select s).ToList().Take(10).ToList();
             return PartialView("_LoadProductNew", model);
         }
 
@@ -134,7 +134,7 @@ namespace tbcng.Controllers
                 return View();
             }
 
-            data = data.Where(x => x.status == true).ToList().OrderByDescending(x=>x.updated_date);
+            data = data.Where(x => x.status == true).OrderByDescending(x => x.product_id).ToList();
             return View(data.ToPagedList(pageNumber, pageSize));
         }
 
