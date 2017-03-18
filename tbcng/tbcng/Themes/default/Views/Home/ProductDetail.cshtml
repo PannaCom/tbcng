@@ -95,20 +95,20 @@
                         <ul style="width: 100%; float: left;">
                             <li><a href="#">Danh mục</a></li>
                             @if (Model.cat.cat1.cat1 != null)
-                    {
-                        if (Model.cat.cat1.cat1.cat_parent_id != null)
-                        {
-                            <li><a href="/danh-muc/@Model.cat.cat1.cat1.cat_url-@Model.cat.cat1.cat1.cat_id">@Model.cat.cat1.cat1.cat_name</a></li>
-                        }
-                    }
+                            {
+                                if (Model.cat.cat1.cat1.cat_parent_id != null)
+                                {
+                                    <li><a href="/danh-muc/@Model.cat.cat1.cat1.cat_url-@Model.cat.cat1.cat1.cat_id">@Model.cat.cat1.cat1.cat_name</a></li>
+                                }
+                            }
                             @if (Model.cat.cat1 != null)
-                    {
-                        if (Model.cat.cat1.cat_parent_id != null)
-                        {
-                            <li><a href="/danh-muc/@Model.cat.cat1.cat_url-@Model.cat.cat1.cat_id">@Model.cat.cat1.cat_name</a></li>
+                            {
+                                if (Model.cat.cat1.cat_parent_id != null)
+                                {
+                                    <li><a href="/danh-muc/@Model.cat.cat1.cat_url-@Model.cat.cat1.cat_id">@Model.cat.cat1.cat_name</a></li>
 
-                        }
-                    }
+                                }
+                            }
                             <li><a href="/danh-muc/@Model.cat.cat_url-@Model.cat_id" class="bb1_p0_m010">@Model.cat.cat_name</a></li>
                         </ul>
 

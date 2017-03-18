@@ -62,7 +62,11 @@
                 <div class="kf_property_breadcrumb">
                     <ul>
                         <li><a href="#">Danh mục</a></li>
-                        <li><a href="/danh-muc/@url_danhmuc-@id_danhmuc" class="bb1_p0_m010">@Danhmuc</a></li>
+                        @if (ViewBag.catsilname != null && @ViewBag.catsilurl != null && @ViewBag.catsilid != null)
+                        {
+                            <li><a href="/danh-muc/@ViewBag.catsilurl-@ViewBag.catsilid">@ViewBag.catsilname</a></li>
+                        }
+                        <li><a href="/danh-muc/@url_danhmuc-@id_danhmuc" class="bb1_p0_m010">@ViewBag.TenDanhMuc</a></li>
                     </ul>
                 </div>
             </div>

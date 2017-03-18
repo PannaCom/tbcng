@@ -122,6 +122,32 @@ namespace tbcng.Controllers
             ViewBag.TenDanhMuc = _cat.cat_name;
             ViewBag.URLDanhMuc = _cat.cat_url;
             ViewBag.IdDanhMuc = id;
+            string catsilname = "";
+            int catsilid = 0;
+            string catsilurl = "";
+            if (_cat.cat1.cat1 != null)
+            {
+                if (_cat.cat1.cat1.cat_parent_id != null)
+                {
+                    catsilname = _cat.cat1.cat1.cat_name;
+                    catsilid = _cat.cat1.cat1.cat_id;
+                    catsilurl = _cat.cat1.cat1.cat_url;
+                }                
+            }
+
+            if (_cat.cat1 != null)
+            {
+                if (_cat.cat1.cat_parent_id != null)
+                {
+                    catsilname = _cat.cat1.cat_name;
+                    catsilid = _cat.cat1.cat_id;
+                    catsilurl = _cat.cat1.cat_url;
+                }
+            }
+
+            ViewBag.catsilname = catsilname;
+            ViewBag.catsilid = catsilid;
+            ViewBag.catsilurl = catsilurl;
 
             int pageSize = 25;
             if (pg == null) pg = 1;
