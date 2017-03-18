@@ -123,7 +123,7 @@ namespace tbcng.Controllers
             ViewBag.URLDanhMuc = _cat.cat_url;
             ViewBag.IdDanhMuc = id;
             string catsilname = "";
-            int catsilid = 0;
+            int? catsilid = 0;
             string catsilurl = "";
             if (_cat.cat1.cat1 != null)
             {
@@ -145,9 +145,9 @@ namespace tbcng.Controllers
                 }
             }
 
-            ViewBag.catsilname = catsilname;
-            ViewBag.catsilid = catsilid;
-            ViewBag.catsilurl = catsilurl;
+            ViewBag.catsilname = catsilname != "" ? catsilname : null;
+            ViewBag.catsilid = catsilid != 0 ? catsilid : (int?)null;
+            ViewBag.catsilurl = catsilurl != "" ? catsilurl : null;
 
             int pageSize = 25;
             if (pg == null) pg = 1;
