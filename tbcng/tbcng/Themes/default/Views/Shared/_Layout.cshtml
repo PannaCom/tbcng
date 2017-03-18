@@ -12,42 +12,17 @@
     ================================================== -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Bootstrap core CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/bootstrap.css")" rel="stylesheet">
-    <!-- Jquery Range Slider CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/range-slider.css")" rel="stylesheet">
-    <!-- Owl Carousel CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/owl.carousel.css")" rel="stylesheet">
-    <!-- Pretty Photo CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/prettyPhoto.css")" rel="stylesheet">
-    <!-- Bx-Slider StyleSheet CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/jquery.bxslider.css")" rel="stylesheet">
-    <!-- Font Awesome StyleSheet CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/font-awesome.css")" rel="stylesheet">
-    <!-- SVG Font StyleSheet CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/svg.css")" rel="stylesheet">
-    <!-- Chosen Script CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/chosen.min.css")" rel="stylesheet">
-    <!-- DL Menu CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/js/dl-menu/component.css")" rel="stylesheet">
-    <!-- Widget CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/widget.css")" rel="stylesheet">
-    <!-- Typography CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/typography.css")" rel="stylesheet">
-    <!-- Shortcodes CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/shortcodes.css")" rel="stylesheet">
-    <!-- Custom Main StyleSheet CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/style.css")" rel="stylesheet">
-    <!-- Color CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/color.css")" rel="stylesheet">
-    <!-- Responsive CSS -->
-    <link href="@Url.Content("~/Themes/default/Content/css/responsive.css")" rel="stylesheet" />
+    <link href="~/Themes/default/Content/css/fonts.css" rel="stylesheet" />
+    @Styles.Render("~/Themes/default/Content/css/main")
+    @Styles.Render("~/Themes/default/Content/style")
+    <link rel="stylesheet" href="~/Themes/default/Content/css/chosen.min.css" />
     <!--Jquery Library-->
         @RenderSection("styles", false)
         <script src="~/Scripts/jquery-1.12.4.min.js"></script>
     @*<script src="@Url.Content("~/Themes/default/Content/js/jquery.js")"></script>*@
     @RenderSection("scripts2", required: false)
+
+    @Html.Partial("_script_googleanalystic")
 </head>
 
 <body>
@@ -68,34 +43,21 @@
     </div>
     
     @Html.Partial("_FooterPartial")
-    
-    <!--Kode Wrapper End-->
-    <!--Jquery UI Library-->
-    <script src="@Url.Content("~/Themes/default/Content/js/range-slider.js")"></script>
-    <!--Bootstrap core JavaScript-->
-    <script src="@Url.Content("~/Themes/default/Content/js/bootstrap.js")"></script>
-    <!--Bx-Slider JavaScript-->
-    <script src="@Url.Content("~/Themes/default/Content/js/jquery.bxslider.js")"></script>
-    <!--Owl Carousel JavaScript-->
-    <script src="@Url.Content("~/Themes/default/Content/js/owl.carousel.js")"></script>
+
+    @Scripts.Render("~/Themes/default/Content/js/main")
     <!--Pretty Photo JavaScript-->
     <script src="@Url.Content("~/Themes/default/Content/js/jquery.prettyPhoto.js")"></script>
-    <!--Accordian JavaScript-->
-    <script src="@Url.Content("~/Themes/default/Content/js/jquery.accordion.js")"></script>
     <!--Number Count (Waypoints) JavaScript-->
     <script src="@Url.Content("~/Themes/default/Content/js/waypoints-min.js")"></script>
     <!-- Chosen Script Javascript -->
     <script src="@Url.Content("~/Themes/default/Content/js/chosen.jquery.min.js")"></script>
-    <!-- Time Counter Script Javascript -->
-    <script src="@Url.Content("~/Themes/default/Content/js/jquery.downCount.js")"></script>
-    <!--Dl Menu Script-->
-    <script src="@Url.Content("~/Themes/default/Content/js/dl-menu/modernizr.custom.js")"></script>
-    <script src="@Url.Content("~/Themes/default/Content/js/dl-menu/jquery.dlmenu.js")"></script>
     <!--Map JavaScript-->
     <!--Custom JavaScript-->
-    <script src="@Url.Content("~/Themes/default/Content/js/custom.js")"></script>
+    @Scripts.Render("~/Themes/default/Content/js/custom")
+   
+
     @RenderSection("scripts", required: false)
-    @Html.Partial("_script_googleanalystic")
+    
 
 
 </body>

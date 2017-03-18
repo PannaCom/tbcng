@@ -258,7 +258,7 @@ p {
             left: 0px;
             width: 250px;
             background-color: #fff;
-            z-index: 9999;
+            z-index: 9;
             opacity: 0;
             visibility: hidden;
             border-bottom: 5px solid;
@@ -714,7 +714,7 @@ p {
     float: left;
     width: 100%;
     position: relative;
-    border-bottom: 3px solid;
+    border-bottom: 3px solid transparent;
 }
 
     .kf_banner_wrap > ul.banner_bxslider {
@@ -1058,6 +1058,7 @@ p {
     margin: 0px 0px 30px;
     border-bottom: 2px solid transparent;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+     border-color: #0070bb;
 }
 
     .kf_property_listing_wrap figure {
@@ -1169,13 +1170,12 @@ p {
         font-size: 15px;
     }
 /*Hover Style*/
-.kf_property_listing_wrap:hover {
-    border-bottom: 2px solid;
-}
 
 .kf_property_listing_wrap:hover {
-    box-shadow: 0 1px 6px 2px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid;box-shadow: 0 1px 6px 2px rgba(0, 0, 0, 0.2);
 }
+
+
 /*
 	  ==============================================================
 		   Property Listing Wrap Css End
@@ -2605,7 +2605,7 @@ ul.kf_schedule_room {
 
 .kf_property_breadcrumb {
     float: left;
-    width: 50%;
+    /*width: 50%;*/
     position: relative;
 }
 

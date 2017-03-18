@@ -665,7 +665,7 @@
 	.kf_submit_property_post{
 		margin-bottom:15px;	
 	}
-	.kf_search_form ..chosen-container{
+	.kf_search_form .chosen-container{
 		width:100%;	
 	}
 	ul.kf_submit_property_newsletter{

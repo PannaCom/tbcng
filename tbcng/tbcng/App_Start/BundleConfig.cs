@@ -38,6 +38,43 @@ namespace tbcng
             bundles.Add(new StyleBundle("~/Content/dropzonescss").Include(
                      "~/Scripts/dropzone/basic.css",
                      "~/Scripts/dropzone/dropzone.css"));
+
+            bundles.Add(new StyleBundle("~/Themes/default/Content/css/main").Include(
+                    "~/Themes/default/Content/css/bootstrap.css",
+                    "~/Themes/default/Content/css/range-slider.css",
+                    "~/Themes/default/Content/css/owl.carousel.css",
+                    "~/Themes/default/Content/css/prettyPhoto.css",
+                    "~/Themes/default/Content/css/jquery.bxslider.css",
+                    "~/Themes/default/Content/css/font-awesome.css",
+                    "~/Themes/default/Content/css/svg.css",                   
+                    "~/Themes/default/Content/css/widget.css",
+                    "~/Themes/default/Content/css/typography.css",
+                    "~/Themes/default/Content/css/shortcodes.css",
+                    "~/Themes/default/Content/css/color.css",
+                    "~/Themes/default/Content/css/responsive.css",
+                    "~/Themes/default/Content/js/dl-menu/component.css"
+                ));
+
+            bundles.Add(new StyleBundle("~/Themes/default/Content/style").Include(
+                    "~/Themes/default/Content/style.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/Themes/default/Content/js/main").Include(
+                    "~/Themes/default/Content/js/range-slider.js",
+                    "~/Themes/default/Content/js/bootstrap.js",
+                    "~/Themes/default/Content/js/jquery.bxslider.js",
+                    "~/Themes/default/Content/js/owl.carousel.js",
+                    "~/Themes/default/Content/js/jquery.accordion.js",
+                    "~/Themes/default/Content/js/jquery.downCount.js",
+                    "~/Themes/default/Content/js/dl-menu/modernizr.custom.js",
+                    "~/Themes/default/Content/js/dl-menu/jquery.dlmenu.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/Themes/default/Content/js/custom").Include(
+                    "~/Themes/default/Content/js/custom.js"
+                ));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -74,9 +74,9 @@
     <meta property="og:image" itemprop="thumbnailUrl" content="@host@url_imgproduct">
 }
 
-@section MainBanner {
+@*@section MainBanner {
     @{Html.RenderAction("LoadProductNewHot");}
-}
+}*@
 
 @if (Model != null)
 {
@@ -84,20 +84,24 @@
     <!--Sub Banner Wrap Start-->
     <div class="kf_property_sub_banner">
         <div class="container">
-            @*<div class="kf_sub_banner_hdg">
-                <h3>@Html.Raw(ViewBag.Title)</h3>
-            </div>*@
-            <div class="kf_property_breadcrumb" style="width: 100%;">
-                <ul style="width: 100%; float: left;">
-                    <li><a href="#">Danh mục</a></li>
-                    @if (Model.cat.cat1.cat1 != null)
+            <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+
+
+                    @*<div class="kf_sub_banner_hdg">
+                        <h3>@Html.Raw(ViewBag.Title)</h3>
+                    </div>*@
+                    <div class="kf_property_breadcrumb" style="width: 100%;">
+                        <ul style="width: 100%; float: left;">
+                            <li><a href="#">Danh mục</a></li>
+                            @if (Model.cat.cat1.cat1 != null)
                     {
                         if (Model.cat.cat1.cat1.cat_parent_id != null)
                         {
                             <li><a href="/danh-muc/@Model.cat.cat1.cat1.cat_url-@Model.cat.cat1.cat1.cat_id">@Model.cat.cat1.cat1.cat_name</a></li>
                         }
                     }
-                    @if (Model.cat.cat1 != null)
+                            @if (Model.cat.cat1 != null)
                     {
                         if (Model.cat.cat1.cat_parent_id != null)
                         {
@@ -105,9 +109,11 @@
 
                         }
                     }
-                    <li><a href="/danh-muc/@Model.cat.cat_url-@Model.cat_id" class="bb1_p0_m010">@Model.cat.cat_name</a></li>
-                </ul>
+                            <li><a href="/danh-muc/@Model.cat.cat_url-@Model.cat_id" class="bb1_p0_m010">@Model.cat.cat_name</a></li>
+                        </ul>
 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -121,7 +127,7 @@
     <div class="container">
         <div class="row">
             <!--Property Detail Description Wrap Start-->
-            <div class="col-md-9">
+            <div class="col-md-offset-3 col-md-9">
 
                 <div class="kf_detail_information">
                     @if (Model != null)

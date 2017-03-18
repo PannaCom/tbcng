@@ -68,6 +68,7 @@ namespace tbcng.Models
         public Nullable<int> cat_id { get; set; }
         [Display(Name = "Mô tả sản phẩm")]
         public string product_des { get; set; }
+        public int? orderby { get; set; }
     }
 
     public class DanhMuc

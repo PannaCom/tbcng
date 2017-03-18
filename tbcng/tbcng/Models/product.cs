@@ -33,6 +33,7 @@ namespace tbcng.Models
         public Nullable<System.DateTime> deleted_date { get; set; }
         public Nullable<bool> status { get; set; }
         public Nullable<int> cat_id { get; set; }
+        public Nullable<int> orderby { get; set; }
     
         public virtual cat cat { get; set; }
         public virtual ICollection<product_img> product_img { get; set; }

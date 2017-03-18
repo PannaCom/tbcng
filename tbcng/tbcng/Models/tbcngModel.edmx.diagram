@@ -15,10 +15,10 @@
         <AssociationConnector Association="thietbicnModel.FK_dbo_UserClaims_dbo_Users_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="thietbicnModel.FK_dbo_UserLogins_dbo_Users_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="thietbicnModel.UserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="thietbicnModel.product" Width="1.5" PointX="3" PointY="7" />
+        <EntityTypeShape EntityType="thietbicnModel.product" Width="1.5" PointX="3" PointY="6.875" />
         <AssociationConnector Association="thietbicnModel.FK_products_cats" />
         <AssociationConnector Association="thietbicnModel.FK_product_img_products" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -146,7 +146,8 @@ namespace tbcng.Controllers
                 product_price_public = _model.product_price_public,
                 //product_type = _model.product_type,
                 status = (bool)_model.status,
-                product_des = _model.product_des
+                product_des = _model.product_des,
+                orderby = _model.orderby
             };
 
             ViewBag.TenCat = _model.product_name;
@@ -178,7 +179,8 @@ namespace tbcng.Controllers
                     _model.product_new_type = model.product_new_type ?? null;
                     _model.status = model.status;
                     _model.edit_date = DateTime.Now;
-                    _model.product_des = model.product_des;
+                    _model.product_des = model.product_des ?? null;
+                    _model.orderby = model.orderby ?? null;
                     db.Entry(_model).State = System.Data.Entity.EntityState.Modified;
                     await db.SaveChangesAsync();
                     TempData["Updated"] = "Cập nhật sản phẩm thành công";

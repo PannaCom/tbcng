@@ -43,6 +43,7 @@
           <Property Name="deleted_date" Type="datetime" />
           <Property Name="status" Type="bit" />
           <Property Name="cat_id" Type="int" />
+          <Property Name="orderby" Type="int" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -397,6 +398,7 @@
           <Property Name="deleted_date" Type="DateTime" Precision="3" />
           <Property Name="status" Type="Boolean" />
           <Property Name="cat_id" Type="Int32" />
+          <Property Name="orderby" Type="Int32" />
           <NavigationProperty Name="cat" Relationship="thietbicnModel.FK_products_cats" FromRole="product" ToRole="cat" />
           <NavigationProperty Name="product_img" Relationship="thietbicnModel.FK_product_img_products" FromRole="product" ToRole="product_img" />
         </EntityType>
@@ -508,6 +510,7 @@
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="thietbicnModel.product">
               <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="orderby" ColumnName="orderby" />
                 <ScalarProperty Name="cat_id" ColumnName="cat_id" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="deleted_date" ColumnName="deleted_date" />

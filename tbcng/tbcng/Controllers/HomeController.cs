@@ -134,7 +134,7 @@ namespace tbcng.Controllers
                 return View();
             }
 
-            data = data.Where(x => x.status == true).OrderByDescending(x => x.product_id).ToList();
+            data = data.Where(x => x.status == true).OrderByDescending(x => x.product_id).OrderBy(x=>x.orderby).ToList();
             return View(data.ToPagedList(pageNumber, pageSize));
         }
 
